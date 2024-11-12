@@ -17,8 +17,9 @@ smooth_reset_speed: 500
 #Vertical Axis Movement
 vertical_movement_enabled: false
 
-#Hotkey
-toggle_hotkey: F8  # Example: 'F8', 'F9', or characters like 't'
+#Hotkeys - Example: 'F8', 'F9', or characters like 't'
+toggle_hotkey: F8 
+exit_hotkey: F9
 
 #Logging
 logging_enabled: true

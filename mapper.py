@@ -43,10 +43,12 @@ class MouseToJoystickMapper:
         self.smooth_reset_speed = config.get('smooth_reset_speed', 500)
         self.vertical_movement_enabled = config.get('vertical_movement_enabled', True)
         self.toggle_hotkey = config.get('toggle_hotkey', 'F8')
+        self.exit_hotkey = config.get('exit_hotkey', 'F9')
 
         #parse hotkey string to pynput key
         from config import get_hotkey
         self.toggle_hotkey = get_hotkey(self.toggle_hotkey)
+        self.exit_hotkey = get_hotkey(self.exit_hotkey)
 
         self._axis_lock = threading.Lock()
         self._last_mouse_x = None
@@ -134,16 +136,19 @@ class MouseToJoystickMapper:
             self.joystick_enabled = not self.joystick_enabled
             status = "Enabled" if self.joystick_enabled else "Disabled"
             logging.info(f"Joystick Emulation {status}")
+        elif key == self.exit_hotkey:
+            logging.info("Exiting...")
+            self.stop()
 
     def _apply_max_speed(self, dx, dy, dt):
         """
         Cap the mouse movement speed to the maximum allowed speed.
         """
-        # Calculate movement speeds
+        #Calculate movement speeds 
         speed_x = dx / dt
         speed_y = dy / dt
 
-        # Cap the speeds if they exceed max_speed
+        #limits the speeds if they exceed max_speed
         if abs(speed_x) > self.max_speed:
             dx = self.max_speed * dt * (1 if speed_x > 0 else -1)
 
@@ -158,24 +163,27 @@ class MouseToJoystickMapper:
         """
         if axis == 'x':
             self.axis_x_value += int(delta * self.sensitivity * 100)
-            # Clamp the axis value
+            # Clamp the X - axis value
             self.axis_x_value = max(self.VJOY_AXIS_MIN, min(self.VJOY_AXIS_MAX, self.axis_x_value))
         elif axis == 'y':
             self.axis_y_value += int(delta * self.sensitivity * 100)
-            # Clamp the axis value
+            # Clamp the Y - axis value
             self.axis_y_value = max(self.VJOY_AXIS_MIN, min(self.VJOY_AXIS_MAX, self.axis_y_value))
 
     def _send_joystick_updates(self):
         """
         Send the updated axis values to the virtual joystick, applying the dead zone.
         """
-        # Apply dead zone for X-axis
+        #Apply dead zone for X-axis
+        #Todo:add horizontal movement toggle
+        #Todo:improve this to start the movement from the center after deadzone rather than from the current position. Need to check how it works in games.
         if abs(self.axis_x_value - self.VJOY_AXIS_CENTER) < self.dead_zone:
             axis_x_output = self.VJOY_AXIS_CENTER
         else:
             axis_x_output = self.axis_x_value
 
-        # Apply dead zone for Y-axis
+        #Apply dead zone for Y-axis
+        #Todo:improve this to start the movement from the center after deadzone rather than from the current position. Need to check how it works in games.
         if self.vertical_movement_enabled:
             if abs(self.axis_y_value - self.VJOY_AXIS_CENTER) < self.dead_zone:
                 axis_y_output = self.VJOY_AXIS_CENTER
@@ -184,7 +192,7 @@ class MouseToJoystickMapper:
         else:
             axis_y_output = self.VJOY_AXIS_CENTER
 
-        # Send to virtual joystick
+        #outputs to virtual joystick (vJoy)
         self.joystick.set_axis(pyvjoy.HID_USAGE_X, axis_x_output)
         self.joystick.set_axis(pyvjoy.HID_USAGE_Y, axis_y_output)
 
