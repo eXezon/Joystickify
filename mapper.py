@@ -35,8 +35,8 @@ class MouseToJoystickMapper:
         #paramters from config
         self.sensitivity = config.get('sensitivity', 0.5)
         self.dead_zone = config.get('dead_zone', 2000)
-        self.movement_dead_zone = config.get('movement_dead_zone', 2)
-        self.max_speed_enabled = config.get('max_speed_enabled', True)
+        self.movement_dead_zone = config.get('movement_dead_zone', 1)
+        self.max_speed_enabled = config.get('max_speed_enabled', False)
         self.max_speed = config.get('max_speed', 1000)
         self.joystick_enabled = True  #start with emulation enabled
         self.smooth_reset_enabled = config.get('smooth_reset_enabled', True)
@@ -95,7 +95,7 @@ class MouseToJoystickMapper:
                     if self.max_speed_enabled:
                         dx, dy = self._apply_max_speed(dx, dy, dt)
 
-                    #dead zone
+                    #movement dead zone
                     if abs(dx) >= self.movement_dead_zone:
                         self._update_axis('x', dx)
 
