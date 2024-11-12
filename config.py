@@ -47,7 +47,7 @@ def get_hotkey(key_str):
         'space': Key.space,
     }
 
-    key_str = key_str.strip().lower()
+    key_str = key_str.strip().upper()
     if key_str in key_mappings:
         return key_mappings[key_str]
     elif len(key_str) == 1:

@@ -12,10 +12,9 @@ def main():
         enabled=config.get('logging_enabled', True),
         level=config.get('logging_level', 'INFO')
     )
-
+    mapper = MouseToJoystickMapper(config)
     try:
         # Initialize mapper with configuration
-        mapper = MouseToJoystickMapper(config)
         mapper.start()
     except KeyboardInterrupt:
         logging.info("Exiting...")
