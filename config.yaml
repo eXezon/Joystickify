@@ -1,0 +1,25 @@
+#Joystick Settings
+device_id: 1
+
+#Sensitivity
+sensitivity: 0.5
+dead_zone: 2000
+movement_dead_zone: 2
+
+#Max Speed
+max_speed_enabled: true
+max_speed: 1000
+
+#Smooth Reset
+smooth_reset_enabled: true
+smooth_reset_speed: 500
+
+#Vertical Movement
+vertical_movement_enabled: false
+
+#Hotkey
+toggle_hotkey: F8  # Example: 'F8', 'F9', or characters like 't'
+
+#Logging
+logging_enabled: true
+logging_level: INFO  # - Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
