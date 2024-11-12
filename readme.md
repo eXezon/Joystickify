@@ -26,7 +26,7 @@ Project's mission is to make gaming more accessible and inclusive by creating to
 
 1. Clone the repository:
    ```bash
-   git clone [repository-url]
+   git clone https://github.com/eXezon/Joystickify/tree/main
    ```
 2. Install the necessary requirements:
    ```bash
