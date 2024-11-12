@@ -25,9 +25,9 @@ Project's mission is to make gaming more accessible and inclusive by creating to
 ## How to Use
 
 1. Install vJoy and pyvjoy:
- - Download and Install vJoy:
-   - Go to the [vJoy Repo](https://github.com/jshafer817/vJoy) and follow the instructions.
-   - Run the installer and follow the instructions to complete the installation.
+   - Download and Install vJoy:
+     - Go to the [vJoy Repo](https://github.com/jshafer817/vJoy) and follow the instructions.
+     - Run the installer and follow the instructions to complete the installation.
 
 2. Clone the repository:
    ```bash
@@ -41,10 +41,11 @@ Project's mission is to make gaming more accessible and inclusive by creating to
 
 ## Roadmap
 
-### Current Milestones
+### Development Objectives
 
-- **Phase 1**: Implement basic mouse-to-joystick mapping with customizable sensitivity, deadzones, and speed limits.
-- **Phase 2**: Add settings for both horizontal and vertical axis control.
+- **Initial Implementation**: Implement basic mouse-to-joystick mapping with customizable sensitivity, deadzones, and speed limits.
+- **Project Restructuring**: Refactor the project to enhance its organization by implementing a modular structure with separate files, classes, and configuration files. This restructuring will lay the foundation for future improvements.
+
 
 ### Future Goals
 
