@@ -1,4 +1,4 @@
-# Joystick Mouse Input for Accessibility
+# Joystickify - Mouse Input for Accessibility
 
 **Note: This project is in an early stage and is actively under development.**
 
