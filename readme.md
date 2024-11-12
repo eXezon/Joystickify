@@ -24,15 +24,20 @@ Project's mission is to make gaming more accessible and inclusive by creating to
 
 ## How to Use
 
-1. Clone the repository:
+1. Install vJoy and pyvjoy:
+ - Download and Install vJoy:
+   - Go to the [vJoy Repo](https://github.com/jshafer817/vJoy) and follow the instructions.
+   - Run the installer and follow the instructions to complete the installation.
+
+2. Clone the repository:
    ```bash
    git clone https://github.com/eXezon/Joystickify/tree/main
    ```
-2. Install the necessary requirements:
+3. Install the necessary requirements:
    ```bash
    pip install -r requirements.txt
    ```
-3. Configure the settings in the `config.yaml` file, adjusting sensitivity, deadzones, and speed caps to match personal preferences and needs.
+4. Configure the settings in the `config.yaml` file, adjusting sensitivity, deadzones, and speed caps to match personal preferences and needs.
 
 ## Roadmap
 
