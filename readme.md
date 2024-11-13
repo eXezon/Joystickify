@@ -49,7 +49,7 @@ Project's mission is to make gaming more accessible and inclusive by creating to
 
 ### Planned Enhancements & Features
 
-- **Anti-Cheat Compatibility**: Improve compatibility with anti-cheat systems, as some may falsely flag this input method. Possible solutions include building a Human Interface Device (HID) integration, such as using a RP2040 microcontroller.
+- **Anti-Cheat Compatibility**: Improve compatibility with anti-cheat systems, as some may falsely flag this input method. Possible solutions include building a Human Interface Device (HID) integration, such as using an RP2040 microcontroller.
 - **Graphical Interface**: Develop a user-friendly graphical interface to make configuration simpler.
 - **Performance Improvements**: Optimize code for smoother operation and lower latency.
 - **Platform Rebuild**: Consider rebuilding the project in a more efficient programming language or framework for improved performance.
